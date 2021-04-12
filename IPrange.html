@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IP Range</title>
+   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<style>
+input[type=text] {
+    width:50%;
+    padding: 10px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: black;
+    color: white;
+    
+}
+ input[type=submit] {
+    width: 50%;
+    padding: 10px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: black;
+    color: white;
+    
+}
+</style>
+</head>
+<body>
+<form name="iprange" action="iprange.php" method="post">
+ <div class="row">
+ <div class="col-sm-4"></div>
+ <div class="col-sm-8">
+                  Start_range:<br>
+                  <input type="text" name="start_ip" placeholder="Enter start range of IP" required>
+                  <br>
+                  End_range:<br>
+                  <input type="text" name="end_ip" placeholder="Enter end range of IP" required>
+                  <br>
+				   File Location:<br>
+                  <input type="text" name="location" placeholder="Enter the location of a file" required>
+				  <br>
+                  <input type="submit" name="submit">
+				  </div>
+				  </div>
+</form>
+</body>
+</html>

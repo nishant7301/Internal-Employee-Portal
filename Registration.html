@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Maxonic Registration Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+
+body {
+	 background-image: url("slider4.jpg");
+ background-color: white;
+   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+}
+input[type=email] {
+    width: 50%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: black;
+	color: white;
+}
+input[type=password] {
+    width: 50%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: black;
+	color: white;
+}
+input[type=date] {
+    width: 50%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: black;
+	color: white;
+}
+input[type=submit] {
+    width: 50%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: black;
+	color: white;
+}
+select[name="type"]
+{
+    width: 50%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: black;
+	color: white;
+}
+</style>
+<script>
+function checkForm()
+{
+	var email = document.forms["regis"]["email"];
+	var password = document.forms["regis"]["password"];
+	var confpassword = document.forms["regis"]["confpassword"];
+	var number = /([0-9])/;
+    var alphabets = /([a-zA-Z])/;
+    var special_characters = /([~,!,@,#,$,%,^,&,*,-,_,+,=,?,>,<])/;
+
+
+if(!(document.regis.password.value==document.regis.confpassword.value))
+{
+	alert("your password is not matching,please enter correct password");
+	return false;
+}
+
+var x = document.forms["regis"]["email"].value;
+
+if (!x.endsWith("maxonic.com")) {
+    alert("Not a valid e-mail address");
+    return false;
+}
+if ($('#password').val().length < 6) {
+alert("Weak,should be strong");
+	return false;
+}
+else {
+                if ($('#password').val().match(number) && $('#password').val().match(alphabets) && $('#password').val().match(special_characters)) {
+                    
+			 
+                } else {
+                  alert("Medium,should be strong");
+	             return false;
+                  
+                }
+            }
+
+}
+</script>
+<style>
+            #frmCheckPassword {
+                border-top: #F0F0F0 2px solid;
+                background: #808080;
+                padding: 10px;
+            }
+
+            .demoInputBox {
+                padding: 7px;
+                border: #F0F0F0 1px solid;
+                border-radius: 4px;
+            }
+
+            #password-strength-status {
+                padding: 5px 10px;
+                color: #FFFFFF;
+                border-radius: 4px;
+                margin-top: 5px;
+            }
+
+            .medium-password {
+                background-color: #b7d60a;
+                border: #BBB418 1px solid;
+            }
+
+            .weak-password {
+                background-color: #ce1d14;
+                border: #AA4502 1px solid;
+            }
+
+            .strong-password {
+                background-color: #12CC1A;
+                border: #0FA015 1px solid;
+            }
+        </style>
+<body>
+ <a href="Employee.php" class="btn btn-info" role="button"  style="float: left;">Back</a>       
+<h1 align="center">Welcome to Maxonic Registration Form</h1>                        <h5>*Represent Mandatory Fields</h5>
+
+<form name="regis" action="Registration.php" method="post"  onsubmit="return checkForm()">
+<div class="col-sm-4"></div>
+<div class="col-sm-7" name="frmCheckPassword" id="frmCheckPassword">
+<input type="email" name="email" placeholder="Enter your Company Email Id" required><br>
+<br>
+<input type="password" name="password"  id="password" class="demoInputBox" onKeyUp="checkPasswordStrength();" placeholder="Enter your Password" required>
+<div id="password-strength-status"></div>
+<br>
+<br>
+<input type="password" name="confpassword" placeholder="Confirm your Password" required>
+<br>
+<br>
+<label>Enter your date of birth</label><br>
+<input type="date" name="dob" placeholder="Enter your date of birth" required>
+<br>
+<br>
+<label>Select Your Working Zone</label><br>
+<select name="type"> 
+  <option value="EST">EST</option>   
+  <option value="PST">PST</option>   
+  <option value="IST">IST</option> 
+</select>  
+<br>
+<br>
+<input type="submit" name="submit">
+</div>
+</form> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        function checkPasswordStrength() {
+            var number = /([0-9])/;
+            var alphabets = /([a-zA-Z])/;
+            var special_characters = /([~,!,@,#,$,%,^,&,*,-,_,+,=,?,>,<])/;
+            if ($('#password').val().length < 6) {
+                $('#password-strength-status').removeClass();
+                $('#password-strength-status').addClass('weak-password');
+			
+                $('#password-strength-status').html("Weak (should be atleast 6 characters.)");
+            } else {
+                if ($('#password').val().match(number) && $('#password').val().match(alphabets) && $('#password').val().match(special_characters)) {
+                    
+					$('#password-strength-status').removeClass();
+                    $('#password-strength-status').addClass('strong-password');
+                    $('#password-strength-status').html("Strong");
+                } else {
+                    $('#password-strength-status').removeClass();
+                    $('#password-strength-status').addClass('medium-password');
+                    $('#password-strength-status').html("Medium (should include alphabets, numbers and special characters.)");
+                }
+            }
+        }
+    </script>
+</body>
+</html>

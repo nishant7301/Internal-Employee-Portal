@@ -1,0 +1,2 @@
+emp_code,name,pf_number,gender,martial_status,monthly_gross_salary,dob,doj,monthly_basic,guardian,relation,employment_status,adhar_no,qualification,Uan_no,account_no,ifsc,email
+111,Nishant,1234,male,married,23000,2019-08-01,2019-08-20,12000,"shatrudhan singh",father,yes,1234567,Graduate,1234,3456788,134253,nishantraj2770@gmail.com

@@ -1,0 +1,749 @@
+<?php 
+   session_start();
+   if(!isset($_SESSION['email']))
+   {
+	header("Location: Employee.php");   
+   }
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Maxonic Timesheet form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<style type="text/css">
+
+body {
+	 background-image: url("slider4.jpg");
+ background-color: white;
+   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+}
+
+.main {
+width:200px;
+border:1px solid black;
+}
+
+.month {
+background-color:white;
+font:bold 12px verdana;
+color:black;
+}
+
+.daysofweek {
+background-color:gray;
+font:bold 12px verdana;
+color:black;
+}
+
+.days {
+font-size: 12px;
+font-family:verdana;
+color:black;
+background-color: lightyellow;
+padding: 2px;
+}
+
+.days #today{
+font-weight: bold;
+color: red;
+}
+
+</style>
+
+
+<script type="text/javascript" src="basiccalendar.js">
+
+/***********************************************
+* Basic Calendar-By Brian Gosselin at http://scriptasylum.com/bgaudiodr/
+* Script featured on Dynamic Drive (http://www.dynamicdrive.com)
+* This notice must stay intact for use
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script> 
+
+<style>
+h1{
+color:black ;
+}
+select[id=1] {
+    width: 10%;
+    padding: 12px 15px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    color:black;
+	 background-color:DodgerBlue ;
+}
+input[type=submit] {
+    width: 10%;
+    padding: 10px 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: black ;
+	color:white;
+}
+input[type=text] {
+    width: 25%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: DodgerBlue;
+
+}
+select[name=month]
+{
+ width: 15%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: black;
+	color:white;
+	
+}
+select[name=year]
+{
+ width: 15%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+       background-color: black;
+	color:white;
+	
+}
+select[name="1"]
+{
+    width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+	border:none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+	
+	
+}
+select[name="2"]
+{
+ width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="3"]
+{
+ width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="4"]
+{
+ width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="5"]
+{
+ width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="6"]
+{
+ width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="7"]
+{
+ width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="8"]
+{
+ width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="9"]
+{
+    width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="10"]
+{
+    width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="11"]
+{
+    width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="12"]
+{
+    width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="13"]
+{
+    width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="14"]
+{
+    width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="15"]
+{
+    width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="16"]
+{
+    width: 6%;;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="17"]
+{
+    width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="18"]
+{
+    width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="19"]
+{
+    width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="20"]
+{
+    width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="21"]
+{
+    width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="22"]
+{
+    width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="23"]
+{
+    width: 6%;;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid
+}
+select[name="24"]
+{
+    width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="25"]
+{
+    width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="26"]
+{
+    width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="27"]
+{
+    width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="28"]
+{
+    width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}select[name="29"]
+{
+    width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="30"]
+{
+    width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+select[name="31"]
+{
+    width: 6%;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #FFFACD;
+	color:black;
+	border-style: solid;
+}
+</style>
+<body>
+<a href="Employee_welcome.php" class="btn btn-info" role="button">Back</a>       <a href="Employee.php" class="btn btn-info" role="button" style="float: right;">Log Out</a>    
+<h1 align="center">Maxonic Timesheet Form</h1>
+
+<form action="timesheet.php" method="post" enctype="multipart/form-data"> 
+<div class="row">
+<div class="col-sm-9">
+<script type="text/javascript">
+     todaydate=new Date()
+    var curmonth=todaydate.getMonth()+1 //get current month (1-12)
+       var curyear=todaydate.getFullYear() //get current year
+              document.write(buildCal(curmonth ,curyear, "main", "month", "daysofweek", "days", 1));
+</script>
+</div>
+<div class="col-sm-3" style="color:black">
+
+<strong>H => Holiday</strong><br>
+<strong>P => Personal Day Off - No Pay</strong><br>
+<strong>V => Vacation</strong><br>
+<strong>S => Sick Day</strong><br>
+<strong>W => Full Work Day</strong><br>
+<strong>R => Half Work Day</strong>
+</div>
+<div class="col-sm-8" style="color:black">
+<p style="color:RED"><strong>Please fill the box according to showing calender,if month has no 31 days then leave as it is.</strong></p>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+ <pre>
+							<select name="month"> 
+							<option value="january">January</option>
+							<option value="feburary">Feburary</option>  
+							<option value="march">March</option> 
+							<option value="april">April</option>   
+							<option value="may">May</option>   
+							<option value="june">June</option> 
+							<option value="july">July</option> 
+							<option value="august">August</option>   
+							<option value="september">Septembet</option>   
+							<option value="october">October</option> 
+							<option value="november">November</option>   
+							<option value="december">December</option> 
+							</select>              <select name="year"> 
+							<option value="2019">2019</option>
+							<option value="2020">2020</option>  
+							<option value="2021">2021</option> 
+							<option value="2022">2022</option>   
+							<option value="2023">2023</option>   
+							<option value="2024">2024</option> 
+							<option value="2025">2025</option> 
+							</select>               
+                                                                  
+                                                     1  <select name="1"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>  
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+                                                     </select> 2  <select name="2"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>  
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 3  <select name="3"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>  
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select>  4 <select name="4"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>  
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 5  <select name="5"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 6  <select name="6"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 7  <select name="7"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select><br>                                                     8  <select name="8"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 9  <select name="9"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 10 <select name="10"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 11 <select name="11"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 12 <select name="12"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 13 <select name="13"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 14 <select name="14">                                               
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select>         <br>                                                     15 <select name="15"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 16 <select name="16"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 17 <select name="17"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 18 <select name="18"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 19 <select name="19"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 20 <select name="20"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 21 <select name="21"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select><br>                                                     22 <select name="22"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 23 <select name="23"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 24 <select name="24"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 25 <select name="25"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 26 <select name="26"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 27 <select name="27"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 28 <select name="28"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select><br>                                                     29 <select name="29"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 30 <select name="30"> 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select> 31 <select name="31" > 
+  <option value="W">W</option>   
+  <option value="R">R</option>   
+  <option value="H">H</option> 
+  <option value="P">P</option>   
+  <option value="V">V</option>   
+  <option value="S">S</option>   
+</select>          <input type="submit" name="submit" value="Send">
+</pre>
+</div>
+
+
+</div>
+</form>
+
+</body>
+</html>
