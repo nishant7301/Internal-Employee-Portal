@@ -6,7 +6,7 @@ $myfile = file_put_contents($file, $headingss.PHP_EOL , FILE_APPEND | LOCK_EX);
 
     try
     {
-        $obj = new BullhornMethodDefination();
+        $obj = new BullhornMethodDefination(); //object decalaration
         $jobs = $obj->getBHJobs('id,candidate,dateAdded,jobOrder,source,status');
       //  echo $jobs;
         //echo "<table id='example' class='display nowrap' width='100%' border='1' cellspacing='0' border-color='#F28518'>  <thead><tr bgcolor='white' style='color:#F28518'><th>Date Added</th><th>ID</th><th>Name</th><th>Gender</th><th>Phone</th><th>Address</th><th>Email</th><th>Degree</th><th>Comments</th><th>Company Name</th><th>Occupation</th><th>Owner</th><th>Experience</th><th>Status</th><th>Submissions</th><th>Sendouts</th></tr></thead><tbody>";
